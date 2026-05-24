@@ -6,8 +6,6 @@ import ru.yandex.practicum.grpc.telemetry.event.SensorEventProto;
 
 import java.time.Instant;
 
-import static ru.yandex.practicum.collector.sensor.SensorEventType.*;
-
 @Component
 public class SensorEventProtoMapper {
 
