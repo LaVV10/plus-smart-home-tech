@@ -12,11 +12,11 @@ import ru.yandex.practicum.kafka.telemetry.event.SensorEventAvro;
 public class TelemetryEventProducer {
     private final KafkaProducer<String, byte[]> kafkaProducer;
     private final KafkaProperties kafkaProperties;
-    private final ru.yandex.practicum.collector.kafka.AvroSerializer avroSerializer;
+    private final AvroSerializer avroSerializer;
 
     public TelemetryEventProducer(KafkaProducer<String, byte[]> kafkaProducer,
                                   KafkaProperties kafkaProperties,
-                                  ru.yandex.practicum.collector.kafka.AvroSerializer avroSerializer) {
+                                  AvroSerializer avroSerializer) {
         this.kafkaProducer = kafkaProducer;
         this.kafkaProperties = kafkaProperties;
         this.avroSerializer = avroSerializer;
