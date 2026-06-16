@@ -1,9 +1,17 @@
 package ru.yandex.practicum.analyzer.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "scenario_actions")
+@Getter
+@Setter
+@ToString(exclude = {"scenario", "sensor", "action"})
+@NoArgsConstructor
 public class ScenarioAction {
     @EmbeddedId
     private ScenarioActionId id = new ScenarioActionId();
@@ -23,44 +31,9 @@ public class ScenarioAction {
     @JoinColumn(name = "action_id")
     private Action action;
 
-    public ScenarioAction() {
-    }
-
     public ScenarioAction(Scenario scenario, Sensor sensor, Action action) {
         this.scenario = scenario;
         this.sensor = sensor;
-        this.action = action;
-    }
-
-    public ScenarioActionId getId() {
-        return id;
-    }
-
-    public Scenario getScenario() {
-        return scenario;
-    }
-
-    public Sensor getSensor() {
-        return sensor;
-    }
-
-    public Action getAction() {
-        return action;
-    }
-
-    public void setId(ScenarioActionId id) {
-        this.id = id;
-    }
-
-    public void setScenario(Scenario scenario) {
-        this.scenario = scenario;
-    }
-
-    public void setSensor(Sensor sensor) {
-        this.sensor = sensor;
-    }
-
-    public void setAction(Action action) {
         this.action = action;
     }
 }

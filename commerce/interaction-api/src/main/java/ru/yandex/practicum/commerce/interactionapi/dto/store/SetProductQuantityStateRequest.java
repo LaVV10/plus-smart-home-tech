@@ -1,9 +1,21 @@
 package ru.yandex.practicum.commerce.interactionapi.dto.store;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.UUID;
 
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class SetProductQuantityStateRequest {
 
     @NotNull
@@ -11,23 +23,4 @@ public class SetProductQuantityStateRequest {
 
     @NotNull
     private QuantityState quantityState;
-
-    public SetProductQuantityStateRequest() {
-    }
-
-    public UUID getProductId() {
-        return productId;
-    }
-
-    public void setProductId(UUID productId) {
-        this.productId = productId;
-    }
-
-    public QuantityState getQuantityState() {
-        return quantityState;
-    }
-
-    public void setQuantityState(QuantityState quantityState) {
-        this.quantityState = quantityState;
-    }
 }

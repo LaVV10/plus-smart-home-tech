@@ -2,11 +2,22 @@ package ru.yandex.practicum.analyzer.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 @Embeddable
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class ScenarioConditionId implements Serializable {
     @Column(name = "scenario_id")
     private Long scenarioId;
@@ -16,51 +27,4 @@ public class ScenarioConditionId implements Serializable {
 
     @Column(name = "condition_id")
     private Long conditionId;
-
-    public ScenarioConditionId() {
-    }
-
-    public ScenarioConditionId(Long scenarioId, String sensorId, Long conditionId) {
-        this.scenarioId = scenarioId;
-        this.sensorId = sensorId;
-        this.conditionId = conditionId;
-    }
-
-    public Long getScenarioId() {
-        return scenarioId;
-    }
-
-    public String getSensorId() {
-        return sensorId;
-    }
-
-    public Long getConditionId() {
-        return conditionId;
-    }
-
-    public void setScenarioId(Long scenarioId) {
-        this.scenarioId = scenarioId;
-    }
-
-    public void setSensorId(String sensorId) {
-        this.sensorId = sensorId;
-    }
-
-    public void setConditionId(Long conditionId) {
-        this.conditionId = conditionId;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ScenarioConditionId that)) return false;
-        return Objects.equals(scenarioId, that.scenarioId)
-                && Objects.equals(sensorId, that.sensorId)
-                && Objects.equals(conditionId, that.conditionId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(scenarioId, sensorId, conditionId);
-    }
 }

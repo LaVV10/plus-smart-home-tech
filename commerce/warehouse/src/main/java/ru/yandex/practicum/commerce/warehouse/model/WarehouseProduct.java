@@ -1,11 +1,21 @@
 package ru.yandex.practicum.commerce.warehouse.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "warehouse_products")
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class WarehouseProduct {
 
     @Id
@@ -29,63 +39,4 @@ public class WarehouseProduct {
 
     @Column(name = "weight", nullable = false)
     private Double weight;
-
-    public WarehouseProduct() {
-    }
-
-    public UUID getProductId() {
-        return productId;
-    }
-
-    public void setProductId(UUID productId) {
-        this.productId = productId;
-    }
-
-    public Long getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Long quantity) {
-        this.quantity = quantity;
-    }
-
-    public Boolean getFragile() {
-        return fragile;
-    }
-
-    public void setFragile(Boolean fragile) {
-        this.fragile = fragile;
-    }
-
-    public Double getWidth() {
-        return width;
-    }
-
-    public void setWidth(Double width) {
-        this.width = width;
-    }
-
-    public Double getHeight() {
-        return height;
-    }
-
-    public void setHeight(Double height) {
-        this.height = height;
-    }
-
-    public Double getDepth() {
-        return depth;
-    }
-
-    public void setDepth(Double depth) {
-        this.depth = depth;
-    }
-
-    public Double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
-    }
 }
