@@ -1,9 +1,17 @@
 package ru.yandex.practicum.analyzer.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "actions")
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
 public class Action {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,35 +22,8 @@ public class Action {
     @Column(name = "action_value")
     private Integer value;
 
-    public Action() {
-    }
-
     public Action(String type, Integer value) {
         this.type = type;
-        this.value = value;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public Integer getValue() {
-        return value;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setValue(Integer value) {
         this.value = value;
     }
 }
