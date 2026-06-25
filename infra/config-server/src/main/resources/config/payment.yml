@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:shopping-store
+    url: jdbc:h2:mem:payment
     username: sa
     password:
 
@@ -15,13 +15,13 @@ spring:
       hibernate:
         format_sql: true
 
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-      springdoc:
-        swagger-ui:
-          path: /swagger-ui.html
-        api-docs:
-          path: /v3/api-docs
