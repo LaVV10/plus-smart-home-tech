@@ -10,6 +10,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapKeyColumn;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +22,11 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "order_bookings")
+@Getter
+@Setter
+@ToString(exclude = "products")
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderBooking {
 
     @Id
@@ -38,39 +48,4 @@ public class OrderBooking {
     @MapKeyColumn(name = "product_id")
     @Column(name = "quantity", nullable = false)
     private Map<UUID, Long> products = new HashMap<>();
-
-    public OrderBooking() {
-    }
-
-    public UUID getBookingId() {
-        return bookingId;
-    }
-
-    public void setBookingId(UUID bookingId) {
-        this.bookingId = bookingId;
-    }
-
-    public UUID getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(UUID orderId) {
-        this.orderId = orderId;
-    }
-
-    public UUID getDeliveryId() {
-        return deliveryId;
-    }
-
-    public void setDeliveryId(UUID deliveryId) {
-        this.deliveryId = deliveryId;
-    }
-
-    public Map<UUID, Long> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Map<UUID, Long> products) {
-        this.products = products;
-    }
 }

@@ -1,5 +1,6 @@
 package ru.yandex.practicum.commerce.order.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,13 +13,10 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequiredArgsConstructor
 public class OrderController implements OrderClient {
 
     private final OrderService orderService;
-
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
-    }
 
     @Override
     public OrderDto createNewOrder(@RequestBody ShoppingCartDto shoppingCartDto) {

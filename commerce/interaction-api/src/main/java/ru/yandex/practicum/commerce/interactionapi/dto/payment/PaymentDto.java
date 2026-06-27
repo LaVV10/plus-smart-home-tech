@@ -1,7 +1,20 @@
 package ru.yandex.practicum.commerce.interactionapi.dto.payment;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.UUID;
 
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class PaymentDto {
 
     private UUID paymentId;
@@ -10,55 +23,4 @@ public class PaymentDto {
     private Double deliveryPrice;
     private Double totalPrice;
     private PaymentState paymentState;
-
-    public PaymentDto() {
-    }
-
-    public UUID getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(UUID paymentId) {
-        this.paymentId = paymentId;
-    }
-
-    public UUID getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(UUID orderId) {
-        this.orderId = orderId;
-    }
-
-    public Double getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(Double productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public Double getDeliveryPrice() {
-        return deliveryPrice;
-    }
-
-    public void setDeliveryPrice(Double deliveryPrice) {
-        this.deliveryPrice = deliveryPrice;
-    }
-
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public PaymentState getPaymentState() {
-        return paymentState;
-    }
-
-    public void setPaymentState(PaymentState paymentState) {
-        this.paymentState = paymentState;
-    }
 }

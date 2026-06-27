@@ -11,12 +11,22 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import ru.yandex.practicum.commerce.interactionapi.dto.delivery.DeliveryState;
 
 import java.util.UUID;
 
 @Entity
 @Table(name = "deliveries")
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class DeliveryEntity {
 
     @Id
@@ -59,71 +69,4 @@ public class DeliveryEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "delivery_state", nullable = false)
     private DeliveryState deliveryState = DeliveryState.CREATED;
-
-    public DeliveryEntity() {
-    }
-
-    public UUID getDeliveryId() {
-        return deliveryId;
-    }
-
-    public void setDeliveryId(UUID deliveryId) {
-        this.deliveryId = deliveryId;
-    }
-
-    public UUID getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(UUID orderId) {
-        this.orderId = orderId;
-    }
-
-    public DeliveryAddress getFromAddress() {
-        return fromAddress;
-    }
-
-    public void setFromAddress(DeliveryAddress fromAddress) {
-        this.fromAddress = fromAddress;
-    }
-
-    public DeliveryAddress getToAddress() {
-        return toAddress;
-    }
-
-    public void setToAddress(DeliveryAddress toAddress) {
-        this.toAddress = toAddress;
-    }
-
-    public Double getDeliveryWeight() {
-        return deliveryWeight;
-    }
-
-    public void setDeliveryWeight(Double deliveryWeight) {
-        this.deliveryWeight = deliveryWeight;
-    }
-
-    public Double getDeliveryVolume() {
-        return deliveryVolume;
-    }
-
-    public void setDeliveryVolume(Double deliveryVolume) {
-        this.deliveryVolume = deliveryVolume;
-    }
-
-    public Boolean getFragile() {
-        return fragile;
-    }
-
-    public void setFragile(Boolean fragile) {
-        this.fragile = fragile;
-    }
-
-    public DeliveryState getDeliveryState() {
-        return deliveryState;
-    }
-
-    public void setDeliveryState(DeliveryState deliveryState) {
-        this.deliveryState = deliveryState;
-    }
 }

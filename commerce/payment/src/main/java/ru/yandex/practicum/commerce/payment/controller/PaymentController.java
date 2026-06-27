@@ -1,5 +1,6 @@
 package ru.yandex.practicum.commerce.payment.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.yandex.practicum.commerce.interactionapi.client.PaymentClient;
@@ -10,13 +11,10 @@ import ru.yandex.practicum.commerce.payment.service.PaymentService;
 import java.util.UUID;
 
 @RestController
+@RequiredArgsConstructor
 public class PaymentController implements PaymentClient {
 
     private final PaymentService paymentService;
-
-    public PaymentController(PaymentService paymentService) {
-        this.paymentService = paymentService;
-    }
 
     @Override
     public Double productCost(@RequestBody OrderDto orderDto) {

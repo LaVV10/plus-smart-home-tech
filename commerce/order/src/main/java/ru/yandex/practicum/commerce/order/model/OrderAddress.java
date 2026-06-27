@@ -1,8 +1,18 @@
 package ru.yandex.practicum.commerce.order.model;
 
 import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Embeddable
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderAddress {
 
     private String country;
@@ -10,55 +20,4 @@ public class OrderAddress {
     private String street;
     private String house;
     private String flat;
-
-    public OrderAddress() {
-    }
-
-    public OrderAddress(String country, String city, String street, String house, String flat) {
-        this.country = country;
-        this.city = city;
-        this.street = street;
-        this.house = house;
-        this.flat = flat;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public String getHouse() {
-        return house;
-    }
-
-    public void setHouse(String house) {
-        this.house = house;
-    }
-
-    public String getFlat() {
-        return flat;
-    }
-
-    public void setFlat(String flat) {
-        this.flat = flat;
-    }
 }

@@ -1,7 +1,7 @@
 package ru.yandex.practicum.commerce.delivery.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.yandex.practicum.commerce.delivery.exception.DeliveryNotFoundException;
@@ -18,11 +18,11 @@ import ru.yandex.practicum.commerce.interactionapi.dto.warehouse.ShippedToDelive
 import java.util.Objects;
 import java.util.UUID;
 
+@Slf4j
 @Service
 @Transactional(readOnly = true)
+@RequiredArgsConstructor
 public class DeliveryServiceImpl implements DeliveryService {
-
-    private static final Logger log = LoggerFactory.getLogger(DeliveryServiceImpl.class);
 
     private static final double BASE_COST = 5.0;
     private static final double FRAGILE_RATE = 0.2;
@@ -39,16 +39,6 @@ public class DeliveryServiceImpl implements DeliveryService {
     private final DeliveryMapper deliveryMapper;
     private final WarehouseClient warehouseClient;
     private final OrderClient orderClient;
-
-    public DeliveryServiceImpl(DeliveryRepository deliveryRepository,
-                               DeliveryMapper deliveryMapper,
-                               WarehouseClient warehouseClient,
-                               OrderClient orderClient) {
-        this.deliveryRepository = deliveryRepository;
-        this.deliveryMapper = deliveryMapper;
-        this.warehouseClient = warehouseClient;
-        this.orderClient = orderClient;
-    }
 
     @Override
     @Transactional

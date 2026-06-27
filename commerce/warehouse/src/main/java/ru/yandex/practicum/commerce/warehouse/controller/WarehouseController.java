@@ -1,6 +1,7 @@
 package ru.yandex.practicum.commerce.warehouse.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.yandex.practicum.commerce.interactionapi.client.WarehouseClient;
@@ -15,13 +16,10 @@ import ru.yandex.practicum.commerce.interactionapi.dto.warehouse.ShippedToDelive
 import ru.yandex.practicum.commerce.warehouse.service.WarehouseService;
 
 @RestController
+@RequiredArgsConstructor
 public class WarehouseController implements WarehouseClient {
 
     private final WarehouseService warehouseService;
-
-    public WarehouseController(WarehouseService warehouseService) {
-        this.warehouseService = warehouseService;
-    }
 
     @Override
     public void addNewProduct(@Valid @RequestBody NewProductInWarehouseRequest request) {

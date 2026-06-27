@@ -1,5 +1,6 @@
 package ru.yandex.practicum.commerce.delivery.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.yandex.practicum.commerce.delivery.service.DeliveryService;
@@ -9,13 +10,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/delivery")
+@RequiredArgsConstructor
 public class DeliveryController {
 
     private final DeliveryService deliveryService;
-
-    public DeliveryController(DeliveryService deliveryService) {
-        this.deliveryService = deliveryService;
-    }
 
     @PutMapping
     public ResponseEntity<DeliveryDto> planDelivery(@RequestBody DeliveryDto deliveryDto) {

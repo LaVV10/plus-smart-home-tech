@@ -1,5 +1,6 @@
 package ru.yandex.practicum.commerce.order.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.yandex.practicum.commerce.interactionapi.client.DeliveryClient;
@@ -25,6 +26,7 @@ import java.util.UUID;
 
 @Service
 @Transactional(readOnly = true)
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
     private static final AddressDto DEFAULT_DELIVERY_ADDRESS = new AddressDto(
@@ -40,18 +42,6 @@ public class OrderServiceImpl implements OrderService {
     private final WarehouseClient warehouseClient;
     private final DeliveryClient deliveryClient;
     private final PaymentClient paymentClient;
-
-    public OrderServiceImpl(OrderRepository orderRepository,
-                            OrderMapper orderMapper,
-                            WarehouseClient warehouseClient,
-                            DeliveryClient deliveryClient,
-                            PaymentClient paymentClient) {
-        this.orderRepository = orderRepository;
-        this.orderMapper = orderMapper;
-        this.warehouseClient = warehouseClient;
-        this.deliveryClient = deliveryClient;
-        this.paymentClient = paymentClient;
-    }
 
     @Override
     @Transactional

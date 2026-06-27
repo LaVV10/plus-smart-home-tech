@@ -1,5 +1,6 @@
 package ru.yandex.practicum.commerce.warehouse.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.yandex.practicum.commerce.interactionapi.dto.cart.ShoppingCartDto;
@@ -25,6 +26,7 @@ import java.util.UUID;
 
 @Service
 @Transactional(readOnly = true)
+@RequiredArgsConstructor
 public class WarehouseServiceImpl implements WarehouseService {
 
     private static final String[] ADDRESSES = new String[]{"ADDRESS_1", "ADDRESS_2"};
@@ -35,12 +37,6 @@ public class WarehouseServiceImpl implements WarehouseService {
 
     private final WarehouseProductRepository warehouseProductRepository;
     private final OrderBookingRepository orderBookingRepository;
-
-    public WarehouseServiceImpl(WarehouseProductRepository warehouseProductRepository,
-                                OrderBookingRepository orderBookingRepository) {
-        this.warehouseProductRepository = warehouseProductRepository;
-        this.orderBookingRepository = orderBookingRepository;
-    }
 
     @Override
     @Transactional

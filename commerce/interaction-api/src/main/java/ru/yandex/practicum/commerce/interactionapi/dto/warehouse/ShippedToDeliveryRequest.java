@@ -1,9 +1,21 @@
 package ru.yandex.practicum.commerce.interactionapi.dto.warehouse;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.UUID;
 
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class ShippedToDeliveryRequest {
 
     @NotNull
@@ -11,28 +23,4 @@ public class ShippedToDeliveryRequest {
 
     @NotNull
     private UUID deliveryId;
-
-    public ShippedToDeliveryRequest() {
-    }
-
-    public ShippedToDeliveryRequest(UUID orderId, UUID deliveryId) {
-        this.orderId = orderId;
-        this.deliveryId = deliveryId;
-    }
-
-    public UUID getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(UUID orderId) {
-        this.orderId = orderId;
-    }
-
-    public UUID getDeliveryId() {
-        return deliveryId;
-    }
-
-    public void setDeliveryId(UUID deliveryId) {
-        this.deliveryId = deliveryId;
-    }
 }

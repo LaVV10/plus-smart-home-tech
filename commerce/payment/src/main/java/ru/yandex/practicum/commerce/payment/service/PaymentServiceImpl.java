@@ -1,5 +1,6 @@
 package ru.yandex.practicum.commerce.payment.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.yandex.practicum.commerce.interactionapi.client.OrderClient;
@@ -18,6 +19,7 @@ import java.util.UUID;
 
 @Service
 @Transactional(readOnly = true)
+@RequiredArgsConstructor
 public class PaymentServiceImpl implements PaymentService {
 
     private static final double VAT_RATE = 0.10;
@@ -26,16 +28,6 @@ public class PaymentServiceImpl implements PaymentService {
     private final PaymentMapper paymentMapper;
     private final ShoppingStoreClient shoppingStoreClient;
     private final OrderClient orderClient;
-
-    public PaymentServiceImpl(PaymentRepository paymentRepository,
-                              PaymentMapper paymentMapper,
-                              ShoppingStoreClient shoppingStoreClient,
-                              OrderClient orderClient) {
-        this.paymentRepository = paymentRepository;
-        this.paymentMapper = paymentMapper;
-        this.shoppingStoreClient = shoppingStoreClient;
-        this.orderClient = orderClient;
-    }
 
     @Override
     public Double productCost(OrderDto orderDto) {

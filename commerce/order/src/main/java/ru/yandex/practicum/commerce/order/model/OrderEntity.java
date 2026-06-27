@@ -13,6 +13,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapKeyColumn;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import ru.yandex.practicum.commerce.interactionapi.dto.order.OrderState;
 
 import java.util.HashMap;
@@ -21,6 +26,11 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "orders")
+@Getter
+@Setter
+@ToString(exclude = "products")
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderEntity {
 
     @Id
@@ -73,119 +83,4 @@ public class OrderEntity {
 
     @Embedded
     private OrderAddress deliveryAddress;
-
-    public OrderEntity() {
-    }
-
-    public UUID getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(UUID orderId) {
-        this.orderId = orderId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public UUID getShoppingCartId() {
-        return shoppingCartId;
-    }
-
-    public void setShoppingCartId(UUID shoppingCartId) {
-        this.shoppingCartId = shoppingCartId;
-    }
-
-    public Map<UUID, Long> getProducts() {
-        return products;
-    }
-
-    public void setProducts(Map<UUID, Long> products) {
-        this.products = products;
-    }
-
-    public UUID getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(UUID paymentId) {
-        this.paymentId = paymentId;
-    }
-
-    public UUID getDeliveryId() {
-        return deliveryId;
-    }
-
-    public void setDeliveryId(UUID deliveryId) {
-        this.deliveryId = deliveryId;
-    }
-
-    public OrderState getOrderState() {
-        return orderState;
-    }
-
-    public void setOrderState(OrderState orderState) {
-        this.orderState = orderState;
-    }
-
-    public Double getDeliveryWeight() {
-        return deliveryWeight;
-    }
-
-    public void setDeliveryWeight(Double deliveryWeight) {
-        this.deliveryWeight = deliveryWeight;
-    }
-
-    public Double getDeliveryVolume() {
-        return deliveryVolume;
-    }
-
-    public void setDeliveryVolume(Double deliveryVolume) {
-        this.deliveryVolume = deliveryVolume;
-    }
-
-    public Boolean getFragile() {
-        return fragile;
-    }
-
-    public void setFragile(Boolean fragile) {
-        this.fragile = fragile;
-    }
-
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public Double getProductPrice() {
-        return productPrice;
-    }
-
-    public void setProductPrice(Double productPrice) {
-        this.productPrice = productPrice;
-    }
-
-    public Double getDeliveryPrice() {
-        return deliveryPrice;
-    }
-
-    public void setDeliveryPrice(Double deliveryPrice) {
-        this.deliveryPrice = deliveryPrice;
-    }
-
-    public OrderAddress getDeliveryAddress() {
-        return deliveryAddress;
-    }
-
-    public void setDeliveryAddress(OrderAddress deliveryAddress) {
-        this.deliveryAddress = deliveryAddress;
-    }
 }
