@@ -2,6 +2,7 @@ package ru.yandex.practicum.commerce.interactionapi.dto.store;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -37,4 +38,8 @@ public class ProductDto {
 
     @NotNull
     private ProductState productState;
+
+    @NotNull
+    @PositiveOrZero
+    private Double price;
 }

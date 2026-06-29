@@ -46,4 +46,7 @@ public class Product {
     @Enumerated(EnumType.STRING)
     @Column(name = "product_state", nullable = false)
     private ProductState productState = ProductState.ACTIVE;
+
+    @Column(name = "price", nullable = false)
+    private Double price;
 }

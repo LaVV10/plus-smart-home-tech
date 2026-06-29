@@ -1,24 +1,25 @@
 package ru.yandex.practicum.commerce.warehouse.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.yandex.practicum.commerce.interactionapi.client.WarehouseClient;
 import ru.yandex.practicum.commerce.interactionapi.dto.cart.ShoppingCartDto;
 import ru.yandex.practicum.commerce.interactionapi.dto.warehouse.AddProductToWarehouseRequest;
 import ru.yandex.practicum.commerce.interactionapi.dto.warehouse.AddressDto;
+import ru.yandex.practicum.commerce.interactionapi.dto.warehouse.AssemblyProductForOrderRequest;
 import ru.yandex.practicum.commerce.interactionapi.dto.warehouse.BookedProductsDto;
 import ru.yandex.practicum.commerce.interactionapi.dto.warehouse.NewProductInWarehouseRequest;
+import ru.yandex.practicum.commerce.interactionapi.dto.warehouse.ReturnProductsRequest;
+import ru.yandex.practicum.commerce.interactionapi.dto.warehouse.ShippedToDeliveryRequest;
 import ru.yandex.practicum.commerce.warehouse.service.WarehouseService;
 
 @RestController
+@RequiredArgsConstructor
 public class WarehouseController implements WarehouseClient {
 
     private final WarehouseService warehouseService;
-
-    public WarehouseController(WarehouseService warehouseService) {
-        this.warehouseService = warehouseService;
-    }
 
     @Override
     public void addNewProduct(@Valid @RequestBody NewProductInWarehouseRequest request) {
@@ -38,5 +39,22 @@ public class WarehouseController implements WarehouseClient {
     @Override
     public AddressDto getWarehouseAddress() {
         return warehouseService.getWarehouseAddress();
+    }
+
+    @Override
+    public BookedProductsDto assemblyProductForOrderFromShoppingCart(
+            @Valid @RequestBody AssemblyProductForOrderRequest request
+    ) {
+        return warehouseService.assemblyProductForOrderFromShoppingCart(request);
+    }
+
+    @Override
+    public void shippedToDelivery(@Valid @RequestBody ShippedToDeliveryRequest request) {
+        warehouseService.shippedToDelivery(request);
+    }
+
+    @Override
+    public void returnProducts(@Valid @RequestBody ReturnProductsRequest request) {
+        warehouseService.returnProducts(request);
     }
 }
